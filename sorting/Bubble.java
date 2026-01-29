@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Selection{
+public class Bubble{
 
     static Scanner sc=new Scanner(System.in);
     
@@ -29,19 +29,15 @@ public class Selection{
         int[] num=get_input();
         int n=num.length;
         
-        for(int i=0;i<n-1;i++){
-            int min=i;
-            for(int j=i+1;j<n;j++){
-                if(num[j]<num[min]){
-                    min=j;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n-1;j++){
+                if(num[j]>num[j+1]){
+                    int t=num[j];
+                    num[j]=num[j+1];
+                    num[j+1]=t;
                 }
             }
-            int t=num[i];
-            num[i]=num[min];
-            num[min]=t;
-
         }
-
         //print
         print(n,num);
     }
